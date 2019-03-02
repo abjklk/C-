@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 //base Bird
-//der: fly and nofly
-// limit:11.2km alti,100kmph
+//der: fly and nofly and falcon,penguin
 class Bird
 {
 public:

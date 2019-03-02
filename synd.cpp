@@ -44,7 +44,7 @@ class Bank
 {
     string name;
 public:
-    BankAcc accs[];
+    BankAcc accs[5];
     void payInterest(float interest)
     {
         for(int i=0;i<noOfAcc;i++)
