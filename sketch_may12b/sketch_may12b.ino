@@ -49,12 +49,12 @@ void loop() {
   Serial.print("Humidity ");
   int humid=root["hum"];
   Serial.println(humid);
-  Serial.print("Heat-index ");
-  int heat_i=root["hi"];
-  Serial.println(heat_i);
   Serial.print("gas sensor ");
   int gas=root["gasv"];
   Serial.println(gas);
+  Serial.print("ldr ");
+  int ldr=root["ldr"];
+  Serial.println(ldr);
   Serial.println("");
   Serial.println("---------------------xxxxx--------------------");
   Serial.println("Uploading...");
@@ -68,6 +68,8 @@ void loop() {
     postStr += String(humid);
     postStr +="&field3=";
     postStr += String(gas);
+    postStr +="&field4=";
+    postStr += String(ldr);
     postStr += "\r\n\r\n";
     client.print("POST /update HTTP/1.1\n");
     client.print("Host: api.thingspeak.com\n");
