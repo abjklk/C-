@@ -34,7 +34,8 @@ class Savings : public Account
     {
     }
     Savings(int a, float b) : Account(a, b) {}
-    void withdraw()
+    template <int t, float f>
+    void withdraw(t)
     {
         cout << "withdraw";
     }
@@ -68,7 +69,11 @@ class Customer
     Account *arr[2];
     void addaccs()
     {
-        arr[0] = new Savings(1, 900);
+        int id, bal;
+        cout << "enter id,bal";
+        cin >> id;
+        cin >> bal;
+        arr[0] = new Savings(id, bal);
         arr[1] = new PF(2, 1000);
     }
     void displayac()
@@ -86,8 +91,33 @@ class Customer
 int main()
 {
     Customer c;
-    c.addaccs();
-    c.displayac();
-    c.transfer(120);
-    c.displayac();
+    int ch;
+    while (1)
+    {
+        cout << "menu\n1.Add Accounts\n2.Withdraw\n3.Deposit\n4.Transfer\n5.Display";
+        cin >> ch;
+        switch (ch)
+        {
+        case 1:
+            c.addaccs();
+            break;
+        case 2:
+            c.arr[0]->withdraw();
+            break;
+        case 3:
+            c.arr[0]->deposit();
+            break;
+        case 4:
+            int b;
+            cout << "enter amt";
+            cin >> b;
+            c.transfer(b);
+            break;
+        case 5:
+            c.arr[0]->display();
+            c.arr[1]->display();
+            break;
+        }
+        system("cls");
+    }
 }

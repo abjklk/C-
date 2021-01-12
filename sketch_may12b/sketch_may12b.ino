@@ -4,17 +4,17 @@ SoftwareSerial s(D6,D5);
 #include <ESP8266WiFi.h>
 #include <ArduinoJson.h>
 
-String apiKey = "WHDAH0QDAX87U2PA";     //  Enter your Write API key from ThingSpeak
-const char *ssid =  "DLink";           // replace with your wifi ssid and wpa2 key
-const char *pass =  "gaurav123";
+String apiKey = "CIOA0SBZBILGRUK4";     //  Enter your Write API key from ThingSpeak
+const char *ssid ="hello";           // replace with your wifi ssid and wpa2 key
+const char *pass ="12345678";
 const char* server = "api.thingspeak.com";
 
 WiFiClient client;
 
 void setup() {
   // Initialize Serial port
-  Serial.begin(115200);
-  s.begin(115200);
+  Serial.begin(9600);
+  s.begin(9600);
   while (!Serial) continue;
  
   Serial.println("Connecting to ");
@@ -22,7 +22,7 @@ void setup() {
   WiFi.begin(ssid, pass);
       
   while (WiFi.status() != WL_CONNECTED) 
-  {
+  { 
       delay(500);
       Serial.print(".");
   }
@@ -36,18 +36,18 @@ void loop() {
   Serial.println("hi");
   if (root == JsonObject::invalid())
   {
-    Serial.println("invalid");  
-    return;
-  }
+   Serial.println("invalid");  
+   return;
+ }
   //Print the data in the serial monitor
   Serial.println("JSON received and parsed");
   root.prettyPrintTo(Serial);
   Serial.println("");
   Serial.print("Temperature ");
-  int temp=root["temp"];
+  float temp=root["temp"];
   Serial.println(temp);
   Serial.print("Humidity ");
-  int humid=root["hum"];
+  float humid=root["hum"];
   Serial.println(humid);
   Serial.print("gas sensor ");
   int gas=root["gasv"];

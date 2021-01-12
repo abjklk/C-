@@ -68,7 +68,7 @@ void loop() {
   // If the DHT-11 is not connected to correct pin or if it doesnt work no data will be sent
   root["temp"] = t;
   root["hum"] = h;
-  root["hi"] = hic;
+//  root["hi"] = hic;
   root["gasv"]= analogRead(A0);
   root["ldr"]= analogRead(A1);
   
@@ -156,7 +156,7 @@ void sendSms()
       delay(10);
       // REPLACE THE X's WITH THE RECIPIENT'S MOBILE NUMBER
       // USE INTERNATIONAL FORMAT CODE FOR MOBILE NUMBERS
-      SIM900.println("AT + CMGS = \"+919606703680\"");
+      SIM900.println("AT + CMGS = \"+917892871157\"");
       delay(100);
       
       // REPLACE WITH YOUR OWN SMS MESSAGE CONTENT
